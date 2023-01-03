@@ -6,7 +6,7 @@
     
   />
 
-  <div class="w-[15%] mr-[75px] mt-5">
+  <div class="w-[15%] mr-[75px]">
     <div class="relative inline-block text-left">
       <div>
         <button
@@ -47,7 +47,7 @@
           <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
           <button
             class="w-full text-gray-700 block px-4 py-2 text-sm text-left bg-white border-none hover:bg-gray-50"
-            (click)="getFiltered(option.id)"
+            (click)="getFiltered(option.id, option.region)"
           >
             {{option.region}}
           </button>

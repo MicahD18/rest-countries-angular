@@ -8,12 +8,14 @@ import { CountryService } from 'src/app/services/country.service';
 })
 export class CountriesComponent implements OnInit {
 
-  countries = this.countryService.getAllCountries();
+  countries: any;
 
   constructor(private countryService: CountryService) { }
 
   ngOnInit(): void {
-    this.countryService.getAllCountries();
+    this.countries = this.countryService.getAllCountries();
+    console.log(this.countries);
+    
   }
 
 }

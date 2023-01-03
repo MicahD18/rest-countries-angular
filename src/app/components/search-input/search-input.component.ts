@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CountryService } from 'src/app/services/country.service';
 
 @Component({
   selector: 'app-search-input',
@@ -18,7 +19,7 @@ export class SearchInputComponent implements OnInit {
     { id: 5, region: 'Oceania' },
   ];
 
-  constructor() {}
+  constructor(private countryService: CountryService) {}
 
   ngOnInit(): void {}
 
@@ -28,11 +29,13 @@ export class SearchInputComponent implements OnInit {
       : (this.showOptions = false);
   }
 
-  getFiltered(id: number) {
+  getFiltered(id: number, region: string) {
     this.options.map(item => {
       if (item.id === id) {
         this.regionValue = item.region;
         this.showOptions = false;
+
+        this.countryService.getCountriesByRegion(region);
       }
     })
   }
