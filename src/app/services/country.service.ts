@@ -9,19 +9,11 @@ import { catchError, retry } from 'rxjs/operators';
 export class CountryService {
   constructor(private http: HttpClient) {}
 
-  getAllCountries() {
-    const req = this.http.get('https://restcountries.com/v2/all');
-
-    req.subscribe((data) => {
-      console.log(data);
-    });
+  getAllCountries(): Observable<Object> {
+    return this.http.get('https://restcountries.com/v2/all');
   }
 
-  getCountriesByRegion(region: string) {
-    const req = this.http.get(`https://restcountries.com/v3.1/region/${region}`);
-
-    req.subscribe((data) => {
-      console.log(data);
-    });
+  getCountriesByRegion(region: string): Observable<Object> {
+    return this.http.get(`https://restcountries.com/v2/region/${region}`);
   }
 }

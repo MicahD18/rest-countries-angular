@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CountryService } from 'src/app/services/country.service';
 
 @Component({
@@ -13,11 +13,12 @@ export class SearchInputComponent implements OnInit {
 
   options: any[] = [
     { id: 1, region: 'Africa' },
-    { id: 2, region: 'America' },
-    { id: 3, region: 'Asia' },
-    { id: 4, region: 'Europe' },
-    { id: 5, region: 'Oceania' },
+    { id: 2, region: 'Asia' },
+    { id: 3, region: 'Europe' },
+    { id: 4, region: 'Oceania' },
   ];
+
+  filterCountry: any;
 
   constructor(private countryService: CountryService) {}
 
@@ -34,8 +35,7 @@ export class SearchInputComponent implements OnInit {
       if (item.id === id) {
         this.regionValue = item.region;
         this.showOptions = false;
-
-        this.countryService.getCountriesByRegion(region);
+        this.filterCountry = this.countryService.getCountriesByRegion(region);
       }
     })
   }

@@ -1,3 +1,4 @@
 interface Country {
+    name: string;
     
 }

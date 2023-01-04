@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   title = 'rest-countries';
+
+  filteredCountries: any;
+
+  addFilteredCountries(newItem: any) {
+    this.filteredCountries = newItem;
+    console.log(this.filteredCountries);
+    
+  }
 }
