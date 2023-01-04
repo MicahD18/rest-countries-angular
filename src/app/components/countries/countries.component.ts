@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationStart, Router } from '@angular/router';
 import { CountryService } from 'src/app/services/country.service';
 
 @Component({
@@ -23,5 +24,9 @@ export class CountriesComponent implements OnInit {
 
   getJSON() {
     this.countries.subscribe((data: any) => console.log(data));
+  }
+
+  showInfo(index: number) {
+    console.log(index);
   }
 }

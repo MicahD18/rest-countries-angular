@@ -19,6 +19,7 @@ import { MatCardModule } from '@angular/material/card';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { InfoComponent } from './components/info/info.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     TopbarComponent,
     SearchInputComponent,
     CountriesComponent,
+    InfoComponent,
   ],
   imports: [
     BrowserModule,
