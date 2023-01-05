@@ -2,5 +2,14 @@
 @tailwind tailwind/base;
 @tailwind components;
 @tailwind utilities;
-html, body { height: 100%; background-color: rgb(235, 235, 235); }
+html, body { 
+    height: 100%; background-color: rgb(235, 235, 235); 
+}
+
+@media (prefers-color-scheme: dark) {
+    html, body {
+        background-color: rgb(28, 40, 47);
+    }
+}
+
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
