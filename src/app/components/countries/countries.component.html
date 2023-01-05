@@ -3,7 +3,7 @@
 <div class="flex flex-row flex-wrap justify-evenly">
     <mat-card class="bg-white w-[275px] mt-5 dark:bg-slate-700 dark:text-white" *ngFor="let country of countries | async | searchPipe: text; let i = index">
         <img src="{{country.flag}}" alt="{{country.name}}" class="w-[275px]">
-        <p class="font-bold text-lg pt-5 pl-[15px]">{{country.name}}</p>
+        <p class="font-bold text-lg pt-5 pl-[15px]">{{country.name }}</p>
         <div class="pl-[15px]">
             <p>Population: <span class="text-gray-300">{{country.population | number}}</span></p>
             <p>Region: <span class="text-gray-300">{{country.region}}</span></p>

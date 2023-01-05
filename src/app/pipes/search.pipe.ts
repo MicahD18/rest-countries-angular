@@ -24,8 +24,11 @@ export class SearchPipe implements PipeTransform {
     searchText = searchText.toLocaleLowerCase();
 
     // return only the items that include characters in the search text
-    return items.filter((item:any) => {
-      return item.toLocaleLowerCase().includes(searchText);
+    return items.filter((item:any, index: number) => {
+
+      console.log(index);
+      
+      return item.name.toLocaleLowerCase().includes(searchText);
     })
   }
 
