@@ -1,1 +1,54 @@
-<p>info works!</p>
+<button
+  routerLink="/"
+  class="mt-[100px] ml-[5%] w-[100px] flex flex-row justify-evenly items-center p-2 text-sm border-none shadow-xl cursor-pointer hover:bg-gray-300 transition rounded-md"
+>
+  <mat-icon>arrow_back</mat-icon>Back
+</button>
+<button (click)="getData()">Get data</button>
+<div
+  class="flex flex-row justify-between w-[100%] mt-[150px]"
+  *ngIf="countryService.countryInfo !== undefined"
+>
+  <img
+    src="{{ countryService.countryInfo.flag }}"
+    alt="{{ countryService.countryInfo.name }}"
+    class="w-[40vw] ml-[5%]"
+  />
+  <div class="mr-[5%] w-[45vw]">
+
+    <div class="flex flex-row justify-center">
+        <p class="text-2xl font-bold">{{ countryService.countryInfo.name }}</p>
+    </div>
+    
+
+    <div class="flex flex-row justify-evenly mt-10">
+      <div class="font-bold">
+        <p>Native Name: <span class="font-normal text-gray-700">{{ countryService.countryInfo.nativeName }}</span></p>
+        <p>Population: <span class="font-normal text-gray-700">{{ countryService.countryInfo.population | number }}</span></p>
+        <p>Region: <span class="font-normal text-gray-700">{{ countryService.countryInfo.region }}</span></p>
+        <p>Sub Region: <span class="font-normal text-gray-700">{{ countryService.countryInfo.subregion }}</span></p>
+        <p>Capital: <span class="font-normal text-gray-700">{{ countryService.countryInfo.capital }}</span></p>
+      </div>
+      <div class="font-bold">
+        <p>Top Level Domain: <span class="font-normal text-gray-700">{{ countryService.countryInfo.topLevelDomain }}</span></p>
+        <p *ngFor="let currency of countryService.countryInfo.currencies">
+          Currencies: <span class="font-normal text-gray-700">{{ currency.code }}</span>
+        </p>
+        <p *ngFor="let language of countryService.countryInfo.languages">
+          Languages: <span class="font-normal text-gray-700">{{ language.name }}</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="flex flex-row justify-evenly mt-10">
+        <p class="font-bold">Border Countries:</p>
+        <div *ngFor="let border of countryService.countryInfo.borders">
+            <button>{{border}}</button>
+        </div>
+
+        <p *ngIf="countryService.countryInfo.borders === undefined">No countries border this country</p>
+      </div>
+  </div>
+
+  
+</div>

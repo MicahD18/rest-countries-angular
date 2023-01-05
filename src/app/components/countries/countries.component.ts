@@ -28,5 +28,8 @@ export class CountriesComponent implements OnInit {
 
   showInfo(index: number) {
     console.log(index);
+
+    this.countryService.getCountryInfo(index, this.countries);
+    
   }
 }
