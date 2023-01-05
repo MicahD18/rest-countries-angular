@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, NavigationStart, Router } from '@angular/router';
 import { CountryService } from 'src/app/services/country.service';
 
@@ -10,15 +10,23 @@ import { CountryService } from 'src/app/services/country.service';
 export class CountriesComponent implements OnInit {
 
   @Input() countries: any;
+  @Input() filteredCountries: any;
   @Input() region: any;
+  @Input() text: any;
 
   constructor(private countryService: CountryService) { }
 
   ngOnInit(): void {
     this.countries = this.countryService.getAllCountries();
+    
+    this.countries.subscribe((data:any) => {
+      console.log(data);
+    })
 
     if (this.region !== 'Filter by Region') {
-      this.countries = this.countryService.getCountriesByRegion(this.region);
+      this.countries.subscribe((data:any) => {
+        console.log(data);
+      })
     }
   }
 
@@ -27,9 +35,6 @@ export class CountriesComponent implements OnInit {
   }
 
   showInfo(index: number) {
-    console.log(index);
-
     this.countryService.getCountryInfo(index, this.countries);
-    
   }
 }

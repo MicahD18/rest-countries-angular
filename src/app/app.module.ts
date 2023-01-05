@@ -18,10 +18,9 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
 
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InfoComponent } from './components/info/info.component';
-
-
+import { SearchPipe } from './pipes/search.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +28,7 @@ import { InfoComponent } from './components/info/info.component';
     SearchInputComponent,
     CountriesComponent,
     InfoComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +43,7 @@ import { InfoComponent } from './components/info/info.component';
     MatCardModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

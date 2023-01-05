@@ -17,12 +17,18 @@ export class SearchInputComponent implements OnInit {
     { id: 3, region: 'Europe' },
     { id: 4, region: 'Oceania' },
   ];
+  
+  filteredCountry: any;
 
-  filterCountry: any;
+  searchText: string = '';
 
+  characters: any;
+  
   constructor(private countryService: CountryService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
 
   toggleShowOptions() {
     this.showOptions === false
@@ -35,7 +41,7 @@ export class SearchInputComponent implements OnInit {
       if (item.id === id) {
         this.regionValue = item.region;
         this.showOptions = false;
-        this.filterCountry = this.countryService.getCountriesByRegion(region);
+        this.filteredCountry = this.countryService.getCountriesByRegion(region);
       }
     })
   }

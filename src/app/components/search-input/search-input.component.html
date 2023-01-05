@@ -3,7 +3,7 @@
     matInput
     placeholder="Search for a country"
     class="w-[45vw] h-[40px] border-none shadow-lg rounded-md p-2 focus:outline-none text-lg mt-5 hover:bg-gray-50 dark:hover:bg-slate-600 dark:bg-slate-700 transition dark:text-white dark:placeholder-gray-400"
-    
+    [(ngModel)]="searchText"
   />
 
   <div class="w-[15%] mr-[75px]">
@@ -58,5 +58,5 @@
 </div>
 
 <div class="mt-[75px]">
-  <app-countries [countries]="filterCountry" [region]="regionValue"></app-countries>
+  <app-countries [countries]="filteredCountry" [text]="searchText" [region]="regionValue"></app-countries>
 </div>

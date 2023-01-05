@@ -1,14 +1,14 @@
 <button (click)="getJSON()">get json</button>
 
 <div class="flex flex-row flex-wrap justify-evenly">
-    <mat-card class="bg-white w-[275px] mt-5 dark:bg-slate-700 dark:text-white" *ngFor="let country of countries | async; let i = index">
+    <mat-card class="bg-white w-[275px] mt-5 dark:bg-slate-700 dark:text-white" *ngFor="let country of countries | async | searchPipe: text; let i = index">
         <img src="{{country.flag}}" alt="{{country.name}}" class="w-[275px]">
         <p class="font-bold text-lg pt-5 pl-[15px]">{{country.name}}</p>
         <div class="pl-[15px]">
             <p>Population: <span class="text-gray-300">{{country.population | number}}</span></p>
             <p>Region: <span class="text-gray-300">{{country.region}}</span></p>
             <p>Capital: <span class="text-gray-300">{{country.capital}}</span></p>
-            <button routerLink="/info" (click)="showInfo(i)" class="dark:bg-slate-500 border-none dark:text-white dark:hover:bg-slate-400 transition cursor-pointer p-3">More Info</button>
+            <button routerLink="/info" (click)="showInfo(i)" class="dark:bg-slate-500 border-none dark:text-white dark:hover:bg-slate-400 transition cursor-pointer p-3 rounded-md">More Info</button>
         </div>
     </mat-card>
 </div>
