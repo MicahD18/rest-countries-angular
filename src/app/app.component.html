@@ -1,3 +1,11 @@
-<app-topbar></app-topbar>
-<app-info *ngIf="event === '/info'"></app-info>
-<app-search-input *ngIf="event === '/'"></app-search-input>
+<div class="bg-gray-200 bg-repeat" [ngClass]=" { dark: themeService.isDarkEnabled === false }" *ngIf="themeService.isDarkEnabled === false">
+  <app-topbar></app-topbar>
+  <app-info *ngIf="event === '/info'"></app-info>
+  <app-search-input *ngIf="event === '/'"></app-search-input>
+</div>
+
+<div class="dark:bg-slate-600" [ngClass]=" { dark: themeService.isDarkEnabled === true }" *ngIf="themeService.isDarkEnabled === true">
+    <app-topbar></app-topbar>
+    <app-info *ngIf="event === '/info'"></app-info>
+    <app-search-input *ngIf="event === '/'"></app-search-input>
+  </div>

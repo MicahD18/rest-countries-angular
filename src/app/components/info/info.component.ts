@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CountryService } from 'src/app/services/country.service';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-info',
@@ -8,16 +9,11 @@ import { CountryService } from 'src/app/services/country.service';
 })
 export class InfoComponent implements OnInit {
 
-  constructor(public countryService: CountryService) {
+  constructor(public countryService: CountryService, public themeService: ThemeService) {
     
   }
 
   ngOnInit(): void {
-    
-  }
-
-  getData() {
-    console.log(this.countryService.countryInfo);
     
   }
 

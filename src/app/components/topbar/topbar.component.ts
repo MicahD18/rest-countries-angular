@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-topbar',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopbarComponent implements OnInit {
 
-  constructor() { }
+  isDarkEnabled: boolean = false;
+
+  constructor(public themeService: ThemeService) { }
 
   ngOnInit(): void {
+  }
+
+  changeTheme() {
+    this.themeService.changeTheme();
+
+    // this.isDarkEnabled === false ? this.isDarkEnabled = true : this.isDarkEnabled = false;
   }
 
 }

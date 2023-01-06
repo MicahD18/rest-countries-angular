@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, NavigationStart, Router } from '@angular/router';
 import { CountryService } from 'src/app/services/country.service';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-countries',
@@ -14,7 +15,7 @@ export class CountriesComponent implements OnInit {
   @Input() region: any;
   @Input() text: any;
 
-  constructor(private countryService: CountryService) { }
+  constructor(private countryService: CountryService, public themeService: ThemeService) { }
 
   ngOnInit(): void {
     this.countries = this.countryService.getAllCountries();
@@ -30,11 +31,7 @@ export class CountriesComponent implements OnInit {
     }
   }
 
-  getJSON() {
-    this.countries.subscribe((data: any) => console.log(data));
-  }
-
-  showInfo(index: number) {
-    this.countryService.getCountryInfo(index, this.countries);
+  showInfo(name: string) {
+    this.countryService.getCountryInfo(name, this.countries);
   }
 }

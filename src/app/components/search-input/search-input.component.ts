@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CountryService } from 'src/app/services/country.service';
+import { LocalService } from 'src/app/services/local.service';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-search-input',
@@ -24,7 +26,7 @@ export class SearchInputComponent implements OnInit {
 
   characters: any;
   
-  constructor(private countryService: CountryService) {}
+  constructor(private countryService: CountryService, private localStore: LocalService, public themeService: ThemeService) {}
 
   ngOnInit(): void {
 
@@ -42,6 +44,7 @@ export class SearchInputComponent implements OnInit {
         this.regionValue = item.region;
         this.showOptions = false;
         this.filteredCountry = this.countryService.getCountriesByRegion(region);
+        // this.localStore.saveData('filter', region);
       }
     })
   }

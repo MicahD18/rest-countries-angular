@@ -20,10 +20,10 @@ export class CountryService {
     return this.http.get(`https://restcountries.com/v2/region/${region}`);
   }
 
-  getCountryInfo(index: number, countries: any): Observable<Object> {
+  getCountryInfo(name: string, countries: any): Observable<Object> {
    return countries.subscribe((data: any) => {
-      data.map((item:any, i:number) => {
-        if (i === index) {
+      data.map((item:any) => {
+        if (item.name === name) {
           console.log(item);
 
           this.countryInfo = item;

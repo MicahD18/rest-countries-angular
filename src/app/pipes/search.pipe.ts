@@ -1,9 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { LocalService } from '../services/local.service';
 
 @Pipe({
   name: 'searchPipe'
 })
 export class SearchPipe implements PipeTransform {
+
+  // store into local storage
+  searchKey: string = 'search';
+
+  constructor(private localStore: LocalService) {}
+
   /**
    * Pipe filters the list of elements based on the search text provided
    *
@@ -28,7 +35,11 @@ export class SearchPipe implements PipeTransform {
 
       console.log(index);
       
-      return item.name.toLocaleLowerCase().includes(searchText);
+      const result = item.name.toLocaleLowerCase().includes(searchText);
+      
+      // this.localStore.saveData(this.searchKey, searchText);
+
+      return result;
     })
   }
 

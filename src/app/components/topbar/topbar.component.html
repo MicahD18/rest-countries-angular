@@ -1,7 +1,35 @@
-<mat-toolbar class="w-[100%] h-[75px] bg-white dark:bg-slate-700 dark:text-white flex flex-row justify-between shadow-lg">
-    <span class="font-bold cursor-pointer" routerLink="/">Where in the world?</span>
-    <div class="flex flex-row justify-between w-[115px] mr-5 mt-5">
-        <mat-icon class="mr-[6px] mb-4">light_mode</mat-icon>
-        <p class="text-lg leading-6">Light Mode</p>
-    </div>
+<mat-toolbar
+  class="w-[100%] h-[75px] bg-white flex flex-row justify-between shadow-lg"
+  [ngClass]="{ dark: themeService.isDarkEnabled === false }"
+  *ngIf="themeService.isDarkEnabled === false"
+>
+  <span class="font-bold cursor-pointer" routerLink="/"
+    >Where in the world?</span
+  >
+  <button
+    class="flex flex-row justify-evenly w-[115px] mr-5 w-[150px] bg-gray-200 h-[50px] hover:bg-slate-500 hover:text-white transition cursor-pointer"
+    (click)="changeTheme()"
+  >
+    <mat-icon class="mr-[6px] mb-4 mt-2">dark_mode</mat-icon>
+    <p class="text-lg leading-10">Dark Mode</p>
+  </button>
+</mat-toolbar>
+
+<!-- DARK MODE -->
+<mat-toolbar
+  class="w-[100%] h-[75px] bg-white dark:bg-slate-700 dark:text-white flex flex-row justify-between shadow-lg"
+  [ngClass]="{ dark: themeService.isDarkEnabled === true }"
+  *ngIf="themeService.isDarkEnabled === true"
+>
+  <span class="font-bold cursor-pointer" routerLink="/"
+    >Where in the world?</span
+  >
+  <button
+    class="flex flex-row justify-evenly w-[115px] mr-5 w-[150px] dark:bg-slate-500 h-[50px] text-white hover:bg-gray-300 hover:text-black transition cursor-pointer"
+    *ngIf="themeService.isDarkEnabled === true"
+    (click)="changeTheme()"
+  >
+    <mat-icon class="mr-[6px] mb-4 mt-2">light_mode</mat-icon>
+    <p class="text-lg leading-10">Light Mode</p>
+  </button>
 </mat-toolbar>
